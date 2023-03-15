@@ -23,21 +23,23 @@ while(not flag3):
             print("0과 252 사이의 값을 입력하세요.")
     except:
         print("유효하지 않은 값입니다.")
-
+        
 stat = (a * 2 + 31 + effort/4) * 0.5 + 5
-
 flag = False
-while(flag == False):
-    character = input("성격 보정 여부(Y or N):")
-    if(character == "Y" or "y"):
-        realstat = stat * 1.1
+while(not flag):
+    character = input("성격 보정 여부(y or n):")
+    if(character == 'n' or character == 'N'):
         flag = True
-    elif (character == "N" or "n"):
-        realstat = stat
+        print("성격 보정 안함")
+    elif (character == 'y' or character == 'Y'):
         flag = True
+        print("성격 보정 함")
+        stat = stat * 1.1
     else:
-        print("Y(y) 또는 N(n)으로 대답할 것")
+        print("y 또는 n으로 입력하세요.")
 
-realstat = math.floor(realstat)
+realstat = math.floor(stat)
 
-print("실능력치는 ",realstat, "입니다.")
+print("실능력치는",realstat, "입니다.")
+
+
