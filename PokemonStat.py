@@ -27,16 +27,20 @@ while(not flag_effort):
 stat = (a * 2 + 31 + effort/4) * 0.5 + 5
 flag_ch = False
 while(not flag_ch):
-    character = input("성격 보정 여부(y or n):")
-    if(character == 'n' or character == 'N'):
+    character = input("성격 보정 여부(up or down or no):")
+    if(character == "up" or character == "UP"):
         flag_ch = True
-        print("성격 보정 안함")
-    elif (character == 'y' or character == 'Y'):
-        flag_ch = True
-        print("성격 보정 함")
+        print("성격 상승 보정")
         stat = stat * 1.1
+    elif (character == "down" or character == "DOWN"):
+        flag_ch = True
+        print("성격 하락 보정")
+        stat = stat * 0.9
+    elif (character == "no" or character == "NO"):
+        flag_ch = True
+        print("성격 보정 없음")
     else:
-        print("y 또는 n으로 입력하세요.")
+        print("up 또는 down 또는 no로 입력하세요.")
 
 realstat = math.floor(stat)
 
